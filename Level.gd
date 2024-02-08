@@ -19,8 +19,6 @@ func all_dead_func():
 	if Signals.all_dead == true:
 		mob_timer.stop()
 		clear_stage.start()
-	print(Signals.all_dead)
-	print(clear_stage.time_left)
 
 
 func _on_MobTimer_timeout():

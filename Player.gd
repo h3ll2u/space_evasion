@@ -34,25 +34,35 @@ func start_with_add(position_2d):
 func _physics_process(delta):
 	var mobile_buttons_direction = mobile_buttons.small_circle.position.normalized()
 	var direction: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	if direction.x or direction.y == 0 or mobile_buttons_direction.y == 0 or mobile_buttons_direction.x == 0:
+	if direction.x or direction.y == 0:
 		animation_player.play("idle")
-	elif direction.y < 0 or mobile_buttons_direction.y < 0 and mobile_buttons_direction.x < mobile_buttons_direction.y:
+	elif direction.y < 0:
 		animation_player.play("fly_up")
-	elif direction.y > 0 or mobile_buttons_direction.y > 0 and mobile_buttons_direction.x < mobile_buttons_direction.y:
+	elif direction.y > 0:
 		animation_player.play("fly_down")
-	if direction.x > 0 or mobile_buttons_direction.x > 0:
+		
+	if direction.x > 0:
 		animation_player.play("fly_side")
 		animsprite.flip_h = true
-	elif direction.x < 0 or mobile_buttons_direction.x < 0:
+	elif direction.x < 0:
 		animation_player.play("fly_side")
 		animsprite.flip_h = false
-	if mobile_buttons_direction.y < 0 and mobile_buttons_direction.x > mobile_buttons_direction.y:
+		
+	if mobile_buttons_direction.y < 0:
 		animation_player.play("fly_up")
-	elif  mobile_buttons_direction.y > 0 and mobile_buttons_direction.x < mobile_buttons_direction.y:
+	elif  mobile_buttons_direction.y > 0:
 		animation_player.play("fly_down")
+		
+	if mobile_buttons_direction.x > 0:
+		animation_player.play("fly_side")
+		animsprite.flip_h = true
+	elif mobile_buttons_direction.x < 0:
+		animation_player.play("fly_side")
+		animsprite.flip_h = false
 	velocity.x = move_toward( velocity.x, speed * direction.x, accel)
 	velocity.y = move_toward( velocity.y, speed * direction.y, accel)
 	position += velocity * delta
+	print(mobile_buttons_direction)
 	
 	if OS.has_feature("mobile"):
 		mobile_buttons_canvas.show()
@@ -60,7 +70,7 @@ func _physics_process(delta):
 		move_and_slide(velocity * speed, Vector2.ZERO)
 	else:
 		move_and_slide(Vector2.ZERO)
-	
+
 		
 	if Signals.hit == true:
 		hide()
