@@ -48,22 +48,22 @@ func _physics_process(delta):
 		animation_player.play("fly_side")
 		animsprite.flip_h = false
 		
-	if mobile_buttons_direction.y < 0:
+	if mobile_buttons_direction.y < 0 and abs(mobile_buttons_direction.y) > abs(mobile_buttons_direction.x):
 		animation_player.play("fly_up")
-	elif  mobile_buttons_direction.y > 0:
+	elif  mobile_buttons_direction.y > 0 and abs(mobile_buttons_direction.y) > abs(mobile_buttons_direction.x):
 		animation_player.play("fly_down")
 		
-	if mobile_buttons_direction.x > 0:
+	if mobile_buttons_direction.x > 0 and abs(mobile_buttons_direction.y) < abs(mobile_buttons_direction.x):
 		animation_player.play("fly_side")
 		animsprite.flip_h = true
-	elif mobile_buttons_direction.x < 0:
+	elif mobile_buttons_direction.x < 0 and abs(mobile_buttons_direction.y) < abs(mobile_buttons_direction.x):
 		animation_player.play("fly_side")
 		animsprite.flip_h = false
 	velocity.x = move_toward( velocity.x, speed * direction.x, accel)
 	velocity.y = move_toward( velocity.y, speed * direction.y, accel)
 	position += velocity * delta
 	print(mobile_buttons_direction)
-	
+
 	if OS.has_feature("mobile"):
 		mobile_buttons_canvas.show()
 		velocity = $MobileButtons/Area2D.get_velo()
