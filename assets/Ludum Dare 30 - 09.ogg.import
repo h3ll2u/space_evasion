@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Ludum Dare 30 - 09.ogg-0f6ca610b65d65f5e71a5d65b0adf52d.oggstr"
+
+[deps]
+
+source_file="res://assets/Ludum Dare 30 - 09.ogg"
+dest_files=[ "res://.import/Ludum Dare 30 - 09.ogg-0f6ca610b65d65f5e71a5d65b0adf52d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

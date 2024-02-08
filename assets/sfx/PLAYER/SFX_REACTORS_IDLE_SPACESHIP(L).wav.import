@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SFX_REACTORS_IDLE_SPACESHIP(L).wav-e946ad9e5bc3a9f9f27a037ce1642527.sample"
+
+[deps]
+
+source_file="res://assets/sfx/PLAYER/SFX_REACTORS_IDLE_SPACESHIP(L).wav"
+dest_files=[ "res://.import/SFX_REACTORS_IDLE_SPACESHIP(L).wav-e946ad9e5bc3a9f9f27a037ce1642527.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
