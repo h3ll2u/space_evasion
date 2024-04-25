@@ -21,8 +21,10 @@ func _physics_process(delta):
 		if alive == false:
 			queue_free()
 		
+		
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
+
 
 func _death_state():
 	alive = false

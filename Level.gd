@@ -5,15 +5,22 @@ var preload_mob = preload("res://Enemy.tscn")
 onready var mob_timer = $MobTimer
 onready var clear_stage = $ClearStage
 onready var player = $Player
+var max_distance = OS.get_screen_size()
+onready var level = $"."
 
 var rng = RandomNumberGenerator.new()
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready():
-	pass # Replace with function body.
+	pass 
+
+
 func _physics_process(delta):
 	if Signals.hit == true:
 		get_tree().reload_current_scene()
 	all_dead_func()
+	player.position.clamped(max_distance.x)
+	
 	
 func all_dead_func():
 	if Signals.all_dead == true:
@@ -24,9 +31,8 @@ func all_dead_func():
 func _on_MobTimer_timeout():
 	var mob = preload_mob.instance()
 	mob.position = Vector2(rng.randi_range(0, 280), -30)
-	
+
 	var direction = Vector2.DOWN
-	
 	
 	add_child(mob)
 
@@ -37,7 +43,6 @@ func _on_BonusTimer_timeout():
 	var direction = Vector2.DOWN
 	
 	add_child(bonus)
-
 
 
 func _on_ClearStage_timeout():

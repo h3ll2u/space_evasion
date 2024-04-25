@@ -38,7 +38,6 @@ position = Vector2( 140, 227 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 140, 225 )
-collision_mask = 9
 
 [node name="DeathScreen" parent="." instance=ExtResource( 6 )]
 
@@ -59,6 +58,7 @@ autoplay = true
 position = Vector2( 140, 241 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 0
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]

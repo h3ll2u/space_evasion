@@ -10,6 +10,7 @@ var touched = false
 func _ready():
 	pass
 
+
 func _input(event):
 	if event is InputEventScreenTouch:
 		var distance = event.position.distance_to(big_circle.global_position)
@@ -20,10 +21,12 @@ func _input(event):
 			small_circle.position = Vector2.ZERO
 			touched = false
 			
+			
 func _process(delta):
 	if touched:
 		small_circle.global_position = get_global_mouse_position()
 		small_circle.position = big_circle.position + (small_circle.position - big_circle.position).clamped(max_distance)
+
 
 func get_velo():
 	var joy_velo = Vector2.ZERO
